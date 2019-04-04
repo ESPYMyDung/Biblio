@@ -6,6 +6,8 @@
 	<persistence-unit name="Biblio" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>  <!-- Choix de l'implémentation JPA (ici Hibernate) -->
 		<class>dev.biblio.Livre</class>
+		<class>dev.biblio.Client</class>
+		<class>dev.biblio.Emprunt</class>
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/bdd_bibliotheque" />
 			<property name="javax.persistence.jdbc.user" value="root" />

@@ -1,8 +1,11 @@
 package dev.biblio;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -20,7 +23,16 @@ public class Livre
 	@Column(name="AUTEUR")
 	private String auteur;
 	
+	@ManyToMany(mappedBy="books")
+	private List<Emprunt> loan;
+	
+	
 	//getter
+	public int getId()
+	{
+		return id;
+	}
+	
 	public String getTitre()
 	{
 		return titre;
@@ -31,24 +43,10 @@ public class Livre
 		return auteur;
 	}
 
-	public int getId()
+	public List<Emprunt> getEmprunt()
 	{
-		return id;
+		return loan;
 	}
-	
-	/*
-	//setter
-	public void setTitre(String titre)
-	{
-		this.titre = titre;
-	}
-	
-	public void setAuteur(String auteur)
-	{
-		this.auteur = auteur;
-	}
-	*/
-	
 	
 
 }

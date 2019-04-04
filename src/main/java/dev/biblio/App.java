@@ -25,19 +25,45 @@ public class App
     	//creer une unite de travail
     	EntityManager travail = factory.createEntityManager();
     	
-    	//Livre bouquin = travail.find(Livre.class,4);
-    	//System.out.println(bouquin.getAuteur());
+    	//--trouver un livre a partir de son id--
+    	Livre bouquin = travail.find(Livre.class,4);
+    	System.out.println(bouquin.getAuteur());
 
-    	
-    	TypedQuery<Livre> requete = travail.createQuery(
+    	//--requete pour extraire un livre a partie du titre--
+    	TypedQuery<Livre> requeteLivre = travail.createQuery(
     			"select l from Livre l where TITRE=:ref", Livre.class);
-    	requete.setParameter("ref", "Germinal");
+    	requeteLivre.setParameter("ref", "Germinal");
     	
-    	List<Livre> liste = requete.getResultList();
-
-    	liste.forEach(bouquin -> {
-			System.out.println(bouquin.getId() + " - "  + bouquin.getTitre() + " - " + bouquin.getAuteur());
+    	List<Livre> listeLivre = requeteLivre.getResultList();
+    	listeLivre.forEach(books -> {
+			System.out.println(books.getId() + " - "  + books.getTitre() + " - " + books.getAuteur());
 		});
+    	
+    	//--requete pour extraire un emprunt et ses livres--
+    	TypedQuery<Emprunt> requeteEmprunt = travail.createQuery(
+    			"select e from Emprunt e where ID=:ref", Emprunt.class);
+    	requeteEmprunt.setParameter("ref", 2);
+    	
+    	List<Emprunt> listeEmprunt = requeteEmprunt.getResultList();
+    	
+    	for (Emprunt empr:listeEmprunt)
+    	{
+    		System.out.println(empr);
+    	}
+    	
+    	//--requete pour extraire les emprunts d'un client-- 	
+    	TypedQuery<Client> requete = travail.createQuery(
+    			"select c from Client c where ID=:ref", Client.class);
+    	requete.setParameter("ref", 2);
+    	
+    	List<Client> liste = requete.getResultList();
+    	
+    	for (Client cust:liste)
+    	{
+    		//System.out.println(cust.getNom() + " " + cust.getPrenom());
+    		System.out.println(cust);
+    	}
+
     			
     	// fin
     	travail.close();
