@@ -39,16 +39,17 @@
 			<version>5.4.2.Final</version>
 			<scope>runtime</scope>
 		</dependency>
-    
-  </dependencies>
-</project>
-
-
-<!--  
+		
+		<!-- Dependence SQL. oui, on en a besoin -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.6</version>
 			<scope>runtime</scope>
 		</dependency>
--->
+    
+  </dependencies>
+</project>
+
+ 
+		
