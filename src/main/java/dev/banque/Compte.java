@@ -2,14 +2,19 @@ package dev.banque;
 
 import java.util.List;
 
+//import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+//import javax.persistence.Inheritance;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Compte
 {
 	//attribut
@@ -25,6 +30,15 @@ public class Compte
 				joinColumns=@JoinColumn(name="id_compte",referencedColumnName="numero"),
 				inverseJoinColumns=@JoinColumn(name="id_client",referencedColumnName="id") )
 	private List<Cust> custs;
+	
+	//constructeur
+	public Compte(){}
+	
+	public Compte(String num, double solde)
+	{
+		this.numero = num;
+		this.solde = solde;
+	}
 	
 	
 	//getter

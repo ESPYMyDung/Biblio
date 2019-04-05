@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
@@ -15,6 +17,7 @@ public class Cust
 {
 	//attribut
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
 	private String nom;
@@ -30,8 +33,18 @@ public class Cust
 	@JoinColumn(name="id_banque")
 	private Banque banq;
 	
+	//constructeur
+	public Cust(){}
 	
-	///getter
+	public Cust(String nom, String prenom, String date, Adresse adr)
+	{
+		this.nom = nom;
+		this.prenom = prenom;
+		this.dateNaissance = LocalDate.parse(date);
+		this.adresse = adr;
+	}
+	
+	//getter
 	public String getNom()
 	{
 		return nom;
