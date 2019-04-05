@@ -3,16 +3,44 @@
 	xmlns="http://xmlns.jcp.org/xml/ns/persistence" 
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-	<persistence-unit name="Biblio" transaction-type="RESOURCE_LOCAL">
-		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>  <!-- Choix de l'implémentation JPA (ici Hibernate) -->
+	<!--  
+	<persistence-unit name="dev.biblio" transaction-type="RESOURCE_LOCAL">
+		
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>   //Choix de l'implémentation JPA (ici Hibernate)
+		
 		<class>dev.biblio.Livre</class>
 		<class>dev.biblio.Client</class>
 		<class>dev.biblio.Emprunt</class>
+		
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/bdd_bibliotheque" />
 			<property name="javax.persistence.jdbc.user" value="root" />
 			<property name="javax.persistence.jdbc.password" value="" />
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
 		</properties>
+	
 	</persistence-unit>
+	-->
+	<persistence-unit name="dev.banque" transaction-type="RESOURCE_LOCAL">
+
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>  <!-- Choix de l'implémentation JPA (ici Hibernate) -->
+		
+		<class>dev.banque.Adresse</class>
+		<class>dev.banque.Banque</class>
+		<class>dev.banque.Compte</class>
+		<class>dev.banque.Cust</class>
+		<class>dev.banque.Operation</class>
+		
+		<properties>
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/bdd_banque" />
+			<property name="javax.persistence.jdbc.user" value="root" />
+			<property name="javax.persistence.jdbc.password" value="" />
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+			<!-- Drop and create à chaque redémarrage -->
+			<property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+		</properties>
+	
+	</persistence-unit>
+	
+	
 </persistence>
