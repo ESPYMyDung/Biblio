@@ -33,10 +33,20 @@ public class Banque
 	{
 		return nom;
 	}
+	
+	public List<Cust> getClients()
+	{
+		return custs;
+	}
 
 	//setter
 	public void setNom(String nom)
 	{
 		this.nom = nom;
+	}
+	
+	public void setClients(List<Cust> custs)
+	{
+		this.custs = custs;
 	}
 }

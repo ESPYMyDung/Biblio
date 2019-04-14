@@ -60,6 +60,16 @@ public class Cust
 		return dateNaissance;
 	}
 	
+	public Banque getBanque()
+	{
+		return banq;
+	}
+	
+	public List<Compte> getComptes()
+	{
+		return comptes;
+	}
+	
 	
 	//setter
 	public void setNom(String nom)
@@ -75,6 +85,16 @@ public class Cust
 	public void setDateNss(LocalDate dateNaissance)
 	{
 		this.dateNaissance = dateNaissance;
+	}
+	
+	public void setBanque(Banque banq)
+	{
+		this.banq = banq;
+	}
+	
+	public void setComptes(List<Compte> comptes)
+	{
+		this.comptes = comptes;
 	}
 
 }

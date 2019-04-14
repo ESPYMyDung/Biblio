@@ -52,6 +52,16 @@ public class Compte
 		return solde;
 	}
 	
+	public List<Operation> getOps()
+	{
+		return op;
+	}
+	
+	public List<Cust> getClients()
+	{
+		return custs;
+	}
+	
 	//setter
 	public void setNumero(String numero)
 	{
@@ -61,6 +71,16 @@ public class Compte
 	public void setSolde(double solde)
 	{
 		this.solde = solde;
+	}
+	
+	public void setOps(List<Operation> op)
+	{
+		this.op = op;
+	}
+	
+	public void setCust(List<Cust> custs)
+	{
+		this.custs = custs;
 	}
 
 }

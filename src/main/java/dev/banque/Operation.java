@@ -57,6 +57,11 @@ public class Operation
 		return motif;
 	}
 	
+	public Compte getCompte()
+	{
+		return compte;
+	}
+	
 	
 	//setter
 	public void setDate(LocalDateTime date)
@@ -72,5 +77,10 @@ public class Operation
 	public void setMotif(String motif)
 	{
 		this.motif = motif;
+	}
+	
+	public void setCompte(Compte compte)
+	{
+		this.compte = compte;
 	}
 }
